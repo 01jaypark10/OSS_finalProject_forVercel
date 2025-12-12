@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "description": "",
-
   "bugs": {
     "url": "https://github.com/wookmin/OSS_TeamProject/issues"
   },
@@ -27,6 +26,7 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-scripts": "5.0.1",
+    "tone": "^15.1.22",
     "web-vitals": "^2.1.4"
   },
   "eslintConfig": {
