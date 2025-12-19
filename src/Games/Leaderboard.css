@@ -1,69 +1,183 @@
-.leaderboard-container {
-  background: #f7f5fa;
-  border-radius: 20px;
-  padding: 32px;
-  margin: 20px auto;
-  max-width: 1200px;
-  box-shadow: 0 4px 16px rgba(180, 180, 200, 0.12);
-}
-
-.leaderboard-container h2 {
-  text-align: center;
-  color: #6dd6ed;
-  margin-bottom: 28px;
-  font-size: 2rem;
-}
-
 /* 전체 화면 리더보드 스타일 */
 .leaderboard-fullscreen {
   min-height: 100vh;
   background: linear-gradient(135deg, #e6e6fa 0%, #f0f4ff 50%, #ffe5ec 100%);
   padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
+/* 게임 순위 제목 스타일 */
 .leaderboard-fullscreen h1 {
   text-align: center;
   color: #6dd6ed;
   margin-bottom: 40px;
-  font-size: 2.5rem;
+  font-size: 2.5rem;  
 }
 
+/* 필터 바 스타일 (입력 후 확인으로 적용) */
+.filters {
+  display: flex;
+  gap: 6px; 
+  align-items: center;
+  margin: 0 auto 12px; 
+  width: 100%;
+  max-width: 980px;
+  padding: 6px 8px; 
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.filters select {
+  padding: 6px 8px; 
+  border-radius: 10px;
+  border: 1px solid rgba(59,92,168,0.12);
+  background: white;
+}
+
+.filters input[type="text"] {
+  flex: 0 1 260px; 
+  padding: 8px 10px; 
+  border-radius: 10px;
+  border: 1px solid rgba(59,92,168,0.12);
+  background: rgba(255,255,255,0.95);
+}
+
+.confirm-filter-btn,
+.clear-filter-btn {
+  border: none;
+  padding: 8px 10px; 
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.confirm-filter-btn {
+  background: linear-gradient(180deg, #6dd6ed 0%, #5bc5db 100%);
+  color: white;
+}
+
+.clear-filter-btn {
+  background: #fff;
+  color: #6b99fb;
+  border: 1px solid rgba(107,153,251,0.12);
+}
+
+/* 필터 바 스타일: 전체 테마와 어울리도록 부드러운 파스텔 버튼 */
+.filter-bar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 0 auto 20px;
+  width: 100%;
+  max-width: 980px;
+  padding: 8px;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.filter-input {
+  flex: 0 1 360px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(59,92,168,0.12);
+  background: rgba(255,255,255,0.9);
+  font-size: 0.95rem;
+  color: #333;
+  box-shadow: 0 2px 8px rgba(60,80,140,0.03);
+}
+
+.confirm-filter-btn,
+.clear-filter-btn {
+  border: none;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.confirm-filter-btn {
+  background: linear-gradient(180deg, #6dd6ed 0%, #5bc5db 100%);
+  color: white;
+  box-shadow: 0 6px 14px rgba(91,197,219,0.15);
+}
+
+.confirm-filter-btn:hover {
+  transform: translateY(-2px);
+}
+
+.clear-filter-btn {
+  background: #fff;
+  color: #6b99fb;
+  border: 1px solid rgba(107,153,251,0.12);
+}
+
+.clear-filter-btn:hover {
+  background: #f7fbff;
+}
+
+
+/* 순위 그리드 스타일 - 카드 가로 배치 */
 .rankings-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
+  display: flex;
+  justify-content: space-between; /* 카드들이 가로로 나열되도록 */
+  gap: 16px; /* 카드 간격을 줄여서 빈 공간을 최소화 */
+  width: 100%;
+  max-width: 100%; /* 최대 너비 100%로 설정 */
+  margin: 0 auto;
+  padding: 0 10px;
+  box-sizing: border-box;
 }
 
+/* 각 순위 카드 스타일 */
 .ranking-card {
   background: #f0f4ff;
   border-radius: 16px;
-  padding: 20px;
+  padding: 24px;
   box-shadow: 0 2px 8px rgba(180, 180, 200, 0.08);
   border: 2px solid #e3eafc;
+  width: 23%; /* 4개의 카드가 한 줄로 나열될 수 있도록 23% 너비 설정 */
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
 }
 
+.ranking-card:hover {
+  transform: scale(1.05); /* 카드에 마우스를 올리면 확대 */
+}
+
+/* 제목 스타일 */
 .ranking-card h3 {
   color: #3a5ca8;
   margin-bottom: 16px;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.1rem; /* 제목 폰트 크기 조정 */
 }
 
+/* 순위 항목 */
 .ranking-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 12px; /* 항목 간격을 조금 늘려서 더 여유 있게 */
 }
 
+/* 순위 항목 스타일 */
 .ranking-item {
   display: flex;
   align-items: center;
-  padding: 12px;
+  padding: 10px;
   background: #fff;
   border-radius: 10px;
   border-left: 4px solid #6dd6ed;
-  gap: 12px;
+  gap: 15px;
   position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 /* 1등 - 금색 */
@@ -105,13 +219,14 @@
 .ranking-item .rank {
   background: #6dd6ed;
   color: white;
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
+  font-size: 0.85rem;
   flex-shrink: 0;
 }
 
@@ -119,15 +234,17 @@
   flex: 1;
   color: #333;
   font-weight: 600;
+  font-size: 0.85rem; /* 닉네임 글자 크기 줄이기 */
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  max-width: calc(100% - 90px); /* 닉네임이 잘리지 않도록 최대 너비 설정 */
 }
 
 .ranking-item .score {
   color: #3a5ca8;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 0.8rem;
   flex-shrink: 0;
 }
 
@@ -237,4 +354,74 @@
 
 .home-button:active {
   transform: translateY(0);
+}
+
+/* 필터 및 검색 박스 디자인 */
+.filters {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 8px; 
+  flex-wrap: nowrap;
+}
+
+/* 게임 선택 드롭다운 */
+.filters select {
+  padding: 8px 10px;
+  font-size: 0.95rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background-color: #fff;
+  width: 160px; 
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.filters select:focus {
+  border-color: #6dd6ed;
+  outline: none;
+}
+
+/* 닉네임 검색 인풋 */
+.filters input {
+  padding: 8px 10px;
+  font-size: 0.95rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background-color: #fff;
+  width: 220px; 
+  transition: all 0.15s;
+}
+
+.filters input:focus {
+  border-color: #6dd6ed;
+  outline: none;
+}
+
+/* 버튼들 간격과 패딩을 더 촘촘하게 조정 */
+.filters .confirm-filter-btn,
+.filters .clear-filter-btn {
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+}
+
+/* 마우스 호버 시 스타일링 */
+.filters select:hover,
+.filters input:hover {
+  border-color: #a0aec0;
+}
+
+/* 화면 크기에 따라 자동으로 정렬되는 반응형 디자인 */
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .filters select,
+  .filters input {
+    width: 100%;
+  }
 }
