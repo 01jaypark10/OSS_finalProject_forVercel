@@ -62,7 +62,8 @@ const Leaderboard = ({ onGoHome }) => {
       return;
     }
 
-    const ok = await updateNickname(item.id, item.gameName, item.score, newName);
+    // `updateNickname` expects the full record and the new nickname
+    const ok = await updateNickname(item, newName);
     if (!ok) {
       alert('닉네임 수정 중 오류가 났어 ㅠㅠ');
       return;
@@ -132,6 +133,7 @@ const Leaderboard = ({ onGoHome }) => {
           onClick={() => {
             setFilterInput('');
             setFilterName('');
+            setSelectedGame('All');
           }}
         >
           필터 해제
